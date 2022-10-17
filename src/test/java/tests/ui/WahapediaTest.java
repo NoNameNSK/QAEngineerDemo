@@ -17,8 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Owner("berezinaa")
 @Feature("Test some Web resource")
 @DisplayName("Wahapedia UI tests")
-@ExtendWith(SelenoidExtension.class)
-public class WahapediaTest {
+public class WahapediaTest extends TestBase {
     public final static String BASE_URL = "https://wahapedia.ru/";
 
     @Test
