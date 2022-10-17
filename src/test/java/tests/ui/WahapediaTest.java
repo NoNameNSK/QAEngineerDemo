@@ -10,6 +10,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import pages.WHGameChoosePage;
 
+import java.util.concurrent.atomic.AtomicReference;
+
+import static io.qameta.allure.Allure.step;
+
 @Tags({@Tag("UI")})
 @Owner("berezinaa")
 @Feature("Test some Web resource")
@@ -21,9 +25,15 @@ public class WahapediaTest extends TestBase {
     @DisplayName("Test game choose")
     public void checkMainPageText(){
         String mainPageHeaderText = "Playing This Game";
+        AtomicReference<String> headerText = new AtomicReference<>();
 
-        Assert.assertEquals(mainPageHeaderText, new WHGameChoosePage(BASE_URL)
-                .chooseWHGame()
-                .getHeaderText());
+        step("Open web resource, choose game and get header text", () -> {
+            headerText.set(new WHGameChoosePage(BASE_URL)
+                    .chooseWHGame()
+                    .getHeaderText());
+        });
+
+        step("Assert what we open right game", () -> Assert.assertEquals(mainPageHeaderText, headerText.get()));
+
     }
 }
