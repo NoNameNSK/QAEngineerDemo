@@ -14,9 +14,8 @@ import java.util.Properties;
 public class Specifications {
     private final static String PROPERTIES_PATH ="src/test/resources/application.properties";
 
-    public static RequestSpecification reqSpec(String url){
+    public static RequestSpecification reqSpec(){
         return new RequestSpecBuilder()
-                .setBasePath(url)
                 .setContentType(ContentType.JSON)
                 .build();
     }
