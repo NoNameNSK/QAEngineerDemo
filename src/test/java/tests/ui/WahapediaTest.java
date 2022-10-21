@@ -1,11 +1,9 @@
 package tests.ui;
 
-import base.SelenoidExtension;
 import base.TestBase;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 import pages.WHGameChoosePage;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -13,12 +11,11 @@ import java.util.concurrent.atomic.AtomicReference;
 import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tags({@Tag("UI")})
+@Tags({@Tag("UI"), @Tag("REGRESS")})
 @Owner("berezinaa")
 @Feature("Test some Web resource")
 @DisplayName("Wahapedia UI tests")
 public class WahapediaTest extends TestBase {
-    public final static String BASE_URL = "https://wahapedia.ru/";
 
     @Test
     @DisplayName("Test game choose")
@@ -27,7 +24,7 @@ public class WahapediaTest extends TestBase {
         AtomicReference<String> headerText = new AtomicReference<>();
 
         step("Open web resource, choose game and get header text", () ->
-                headerText.set(new WHGameChoosePage(BASE_URL)
+                headerText.set(new WHGameChoosePage()
                 .chooseWHGame()
                 .getHeaderText()));
 

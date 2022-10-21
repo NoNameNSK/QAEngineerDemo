@@ -1,5 +1,6 @@
 package tests.api;
 
+import base.TestBase;
 import classes.Reqres;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -20,11 +21,11 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tags({@Tag("API"), @Tag("GET")})
+@Tags({@Tag("API"), @Tag("USER_LIST"), @Tag("REGRESS")})
 @Owner("berezinaa")
 @Feature("Work with reqres user lists")
 @DisplayName("Test user lists")
-public class UserListTest {
+public class UserListTest extends TestBase {
     @Test
     @DisplayName("List of Users is not Empty")
     void listOfUsersNotEmptyTest() throws IOException {
