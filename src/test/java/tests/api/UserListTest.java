@@ -2,6 +2,7 @@ package tests.api;
 
 import base.TestBase;
 import classes.Reqres;
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
@@ -28,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserListTest extends TestBase {
     @Test
     @DisplayName("List of Users is not Empty")
-    void listOfUsersNotEmptyTest() throws IOException {
+    void listOfUsersNotEmptyTest() {
         Specifications.setUpSpec(Specifications.reqSpec(), Specifications.resSpec(200));
         AtomicReference<List<User>> userList = new AtomicReference<>();
 
