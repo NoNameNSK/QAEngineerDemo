@@ -60,16 +60,14 @@ public class WahapediaTest extends TestBase {
 
     @ParameterizedTest
     @MethodSource("unitGenerator")
-    @DisplayName("Check text of rule")
+    @DisplayName("Check unit power cost")
     public void checkUnitCost(Unit unit) {
         AtomicReference<WHUnitPage> whUnitPage = new AtomicReference<>();
 
-        step("Open unit page", () -> {
-            whUnitPage.set(new WHGameChoosePage()
-                    .chooseWHGame()
-                    .openAdeptaSororitasRules()
-                    .openUnitPageByName(unit.getName()));
-        });
+        step("Open unit page", () -> whUnitPage.set(new WHGameChoosePage()
+                .chooseWHGame()
+                .openAdeptaSororitasRules()
+                .openUnitPageByName(unit.getName())));
 
         step("Assert what we open right unit", () ->
                 assertEquals(unit.getName(), whUnitPage.get().unitName.text()));

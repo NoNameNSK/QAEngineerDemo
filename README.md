@@ -147,7 +147,7 @@ public class WahapediaTest extends TestBase {
 
 <a id="screenshot"></a>
 
-## Screenshots and videos :camera_flash:
+## Screenshots :camera_flash:
 
 <a id="selenoid"></a>
 
